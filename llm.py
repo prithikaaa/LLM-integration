@@ -10,7 +10,7 @@ def ask_llm(
 ) -> str:
     """Sends a prompt to the OpenAI LLM and returns the text response."""
 try:
-        response = client.chat.completions.create(
+    response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": system_instruction},
@@ -19,5 +19,8 @@ try:
             temperature=0.7,  # Adjusts creativity (0.0 = deterministic, 1.0 = creative)
             max_tokens=500    # Limits the length of the response
         )
-        # Extract and return the text content from the response object
-        return response.choices[0].message.content
+    # Extract and return the text content from the response object
+    return response.choices[0].message.content
+
+except Exception as e:
+    return f"An error occurred: {e}"
