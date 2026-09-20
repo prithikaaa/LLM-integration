@@ -24,3 +24,15 @@ try:
 
 except Exception as e:
     return f"An error occurred: {e}"
+
+if __name__ == "__main__":
+    # Example usage
+    user_prompt = (
+        "Explain the concept of 'Recursion' in programming using a simple analogy."
+    )
+
+    print("Sending prompt to LLM...\n")
+    reply = ask_llm(user_prompt)
+
+    print("--- LLM Response ---")
+    print(reply)
