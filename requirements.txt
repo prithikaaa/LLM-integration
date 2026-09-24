@@ -4,3 +4,81 @@ streamlit==1.22.0
 tiktoken==0.4.0
 faiss-cpu==1.7.4
 protobuf~=3.19.0
+
+
+## Job Matching
+
+- Match jobs against skills, experience, location, salary, and job title
+- Configurable minimum match score
+- Include and exclude keyword rules
+- Duplicate job detection
+- Company and recruiter filtering
+- Remote, hybrid, and onsite preferences
+- Seniority-level filtering
+
+## Platform Integration
+
+- Separate integration modules for LinkedIn and Naukri
+- Platform login and session management
+- Job search and job-detail retrieval
+- Application form detection
+- Resume upload support
+- Common-question answer support
+- Application status tracking
+- Platform-specific configuration
+- Handling of expired sessions, login challenges, CAPTCHA, and MFA
+
+## Security and Privacy
+
+- Never store passwords in source code
+- Never store passwords in plain text
+- Use environment variables or a secrets manager
+- Encrypt stored credentials and session data
+- Protect resumes and personal information
+- Exclude credentials, logs, databases, and private files from version control
+- Support credential deletion and account logout
+- Do not log passwords, tokens, or sensitive personal data
+- Maintain an audit trail for application activity
+
+## Automation Controls
+
+- Configurable scheduled job checks
+- Maximum applications per day
+- Platform-specific application limits
+- Delay between applications
+- Preview mode before submission
+- Optional manual approval before final submission
+- Duplicate-application prevention
+- Retry handling for temporary failures
+- Stop automation when suspicious activity or account warnings are detected
+
+## Application Tracking
+
+- Job title, company, platform, and URL
+- Application date and status
+- Match score and matched skills
+- Submitted resume and answers
+- Failure reason
+- Successful and failed application notifications
+- Daily and weekly summaries
+- CSV or JSON export
+
+## Testing
+
+- Profile validation tests
+- Job-matching tests
+- Duplicate-detection tests
+- Credential-encryption tests
+- Mock platform integration tests
+- Application-limit tests
+- Retry and failure-handling tests
+- Tests confirming that sensitive data is not logged
+
+## Platform and Legal Constraints
+
+- Verify LinkedIn and Naukri terms of service before implementation
+- Prefer official APIs or permitted integrations where available
+- Do not bypass CAPTCHA or MFA
+- Do not evade platform security controls or rate limits
+- Respect platform-specific automation restrictions
+- Use human approval where automatic submission is not permitted
