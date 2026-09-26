@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "job-application-automation"
+version = "0.1.0"
+description = "Automation project for matching and applying to relevant jobs on supported platforms"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Your Name" }
+]
+license = { text = "Internal / Educational Use" }
+keywords = ["jobs", "automation", "linkedin", "naukri", "career"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+dependencies = [
+  "python-dotenv>=1.0.0",
+  "requests>=2.31.0",
+  "playwright>=1.45.0",
+  "pydantic>=2.7.0",
+  "PyYAML>=6.0.1",
+  "APScheduler>=3.10.4",
+  "beautifulsoup4>=4.12.3",
+  "lxml>=5.0.0",
+  "cryptography>=42.0.0",
+  "SQLAlchemy>=2.0.30",
+  "python-dateutil>=2.9.0",
+  "tenacity>=8.0.0",
+  "structlog>=24.1.0",
+  "pytest>=8.2.0",
+  "pytest-cov>=5.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "black>=24.4.0",
+  "ruff>=0.5.0",
+  "mypy>=1.10.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
