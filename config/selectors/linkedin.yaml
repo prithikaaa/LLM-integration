@@ -1,0 +1,34 @@
+# LinkedIn UI locator configuration.
+# Review and verify locators against the current site UI before use.
+# Do not use this configuration to bypass CAPTCHA, MFA, or platform controls.
+
+platform: linkedin
+
+job_search:
+  search_input: "[role='combobox'][aria-label*='Search']"
+  results_container: "[role='main']"
+  job_result: "[data-job-id]"
+  job_title: "h3"
+  company_name: ".job-card-container__primary-description"
+  location: ".job-card-container__metadata-item"
+  job_link: "a[href*='/jobs/view/']"
+
+job_details:
+  panel: ".jobs-search__job-details"
+  title: "h1"
+  company_link: "a[href*='/company/']"
+  description: ".jobs-description__content"
+
+application:
+  apply_button: "button.jobs-apply-button"
+  application_dialog: "[role='dialog']"
+  next_button: "button[aria-label*='Continue']"
+  review_button: "button[aria-label*='Review']"
+  submit_button: "button[aria-label*='Submit application']"
+  confirmation: "[role='alert']"
+
+security_and_review:
+  captcha_indicator: "iframe[src*='captcha'], [class*='captcha']"
+  verification_prompt: "[role='dialog'][aria-label*='verification']"
+  manual_review_required: true
+  pause_on_security_challenge: true
