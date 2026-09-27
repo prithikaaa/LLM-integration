@@ -1,0 +1,36 @@
+# Naukri UI locator configuration.
+# Review and verify locators against the current site UI before use.
+# Do not use this configuration to bypass CAPTCHA, MFA, or platform controls.
+
+platform: naukri
+
+job_search:
+  search_input: "input[placeholder*='Skills']"
+  location_input: "input[placeholder*='Location']"
+  search_button: "button[type='submit']"
+  results_container: "[class*='list']"
+  job_result: "article[class*='jobTuple']"
+  job_title: "a.title"
+  company_name: "a.subTitle"
+  location: "li[class*='location']"
+  experience: "li[class*='experience']"
+  job_link: "a.title[href]"
+
+job_details:
+  title: "h1"
+  company_name: "a[class*='comp-name']"
+  description: "div[class*='job-desc']"
+  apply_button: "button[class*='apply']"
+
+application:
+  application_dialog: "[role='dialog']"
+  resume_upload: "input[type='file']"
+  next_button: "button[type='submit']"
+  submit_button: "button[type='submit']"
+  confirmation: "[role='alert']"
+
+security_and_review:
+  captcha_indicator: "iframe[src*='captcha'], [class*='captcha']"
+  verification_prompt: "[role='dialog'][class*='verify']"
+  manual_review_required: true
+  pause_on_security_challenge: true
