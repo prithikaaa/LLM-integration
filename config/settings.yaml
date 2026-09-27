@@ -1,0 +1,52 @@
+app:
+  name: job-application-automation
+  environment: ${APP_ENV:development}
+  log_level: ${LOG_LEVEL:INFO}
+
+platforms:
+  linkedin:
+    enabled: true
+    email: ${LINKEDIN_EMAIL:}
+    password: ${LINKEDIN_PASSWORD:}
+  naukri:
+    enabled: true
+    email: ${NAUKRI_EMAIL:}
+    password: ${NAUKRI_PASSWORD:}
+
+profile:
+  full_name: ${USER_FULL_NAME:}
+  phone: ${USER_PHONE:}
+  location: ${USER_LOCATION:}
+  preferred_locations: ${PREFERRED_LOCATIONS:Remote}
+  job_titles: ${JOB_TITLES:}
+  skills: ${SKILLS:}
+  experience_years: ${EXPERIENCE_YEARS:0}
+  notice_period_days: ${NOTICE_PERIOD:0}
+  expected_salary: ${EXPECTED_SALARY:}
+  resume_path: ${RESUME_PATH:./data/resumes/resume.pdf}
+  cover_letter_path: ${COVER_LETTER_PATH:./data/cover_letters/cover_letter.pdf}
+
+matching:
+  minimum_score: ${MATCH_SCORE_THRESHOLD:70}
+  exclude_keywords: []
+  include_keywords: []
+
+automation:
+  enabled: ${AUTOMATION_ENABLED:false}
+  check_interval_minutes: ${JOB_CHECK_INTERVAL_MINUTES:30}
+  max_applications_per_day: ${MAX_APPLICATIONS_PER_DAY:10}
+  approval_required: ${APPROVAL_REQUIRED:true}
+  delay_between_applications_seconds: 60
+  stop_on_security_challenge: true
+
+storage:
+  database_url: ${DATABASE_URL:sqlite:///data/app.db}
+  encryption_key: ${SECRET_KEY:}
+
+notifications:
+  email_enabled: false
+  smtp_host: ${SMTP_HOST:}
+  smtp_port: ${SMTP_PORT:587}
+  smtp_username: ${SMTP_USER:}
+  smtp_password: ${SMTP_PASSWORD:}
+  recipient: ${EMAIL_TO:}
