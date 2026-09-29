@@ -3,8 +3,12 @@ from langchain_helper import get_qa_chain, create_vector_db
 
 # libraries imported
 
+
+
 st.title("Codebasics Q&A 🌱")
 btn = st.button("Create Knowledgebase")
+
+
 if btn:
     create_vector_db()
 
