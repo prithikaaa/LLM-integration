@@ -12,7 +12,6 @@ from typing import Any
 import yaml
 from dotenv import load_dotenv
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "settings.yaml"
 ENVIRONMENT_VARIABLE = re.compile(r"\$\{([^}:]+)(?::([^}]*))?\}")
@@ -87,21 +86,15 @@ def validate_settings(settings: dict[str, Any]) -> None:
     if not 0 <= minimum_score <= 100:
         raise ConfigurationError("matching.minimum_score must be between 0 and 100.")
 
-    check_interval = _integer_setting(
-        settings, ("automation", "check_interval_minutes"), 30
-    )
+    check_interval = _integer_setting(settings, ("automation", "check_interval_minutes"), 30)
     if check_interval < 1:
         raise ConfigurationError("automation.check_interval_minutes must be at least 1.")
 
-    application_limit = _integer_setting(
-        settings, ("automation", "max_applications_per_day"), 10
-    )
+    application_limit = _integer_setting(settings, ("automation", "max_applications_per_day"), 10)
     if application_limit < 1:
         raise ConfigurationError("automation.max_applications_per_day must be at least 1.")
 
-    delay = _integer_setting(
-        settings, ("automation", "delay_between_applications_seconds"), 60
-    )
+    delay = _integer_setting(settings, ("automation", "delay_between_applications_seconds"), 60)
     if delay < 0:
         raise ConfigurationError(
             "automation.delay_between_applications_seconds cannot be negative."
