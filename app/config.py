@@ -9,7 +9,6 @@ from typing import Any
 
 import yaml
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "settings.yaml"
 ENVIRONMENT_VARIABLE = re.compile(r"\$\{([^}:]+)(?::([^}]*))?\}")
@@ -97,9 +96,7 @@ def validate_settings(settings: dict[str, Any]) -> None:
     automation = _mapping_section(settings, "automation")
     platforms = _mapping_section(settings, "platforms")
 
-    minimum_score = integer_setting(
-        {"matching": matching}, ("matching", "minimum_score"), 70
-    )
+    minimum_score = integer_setting({"matching": matching}, ("matching", "minimum_score"), 70)
     if not 0 <= minimum_score <= 100:
         raise ConfigurationError("matching.minimum_score must be between 0 and 100.")
 
